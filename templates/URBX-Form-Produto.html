@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Produto</title>
+    <link rel="stylesheet" href="/CSS/URBX-CSS.css">
+</head>
+
+<body>
+<div class="URBX-Grid">
+    <div class="filho" id="header">
+        <img src="/images/Logo_URBX.png">
+    </div>
+
+    <div class="filho" id="main">
+<h1 th:text="${produto.id == null ? 'Novo produto' : 'Editar produto'}"><strong>URBX - CADASTRO DE PRODUTO</strong></h1>
+
+<hr>
+
+<form th:action="@{/URBX-produto/salvar}"
+      th:object="${produto}"
+      method="post">
+
+    <!-- ID escondido (IMPORTANTE pra edição depois) -->
+    <input type="hidden" th:field="*{id}" />
+
+    <div>
+        <label><strong>NOME:</strong></label>
+        <input type="text" th:field="*{nomeProdutoURBX}" required/>
+        <p th:if="${erroNome}"></p>
+    </div>
+
+    <div>
+        <label><strong>PREÇO:</strong></label>
+        <input type="number" step="0.01" th:field="*{precoProdutoURBX}" required/>
+    </div>
+
+    <div>
+        <label><strong>TIPO:</strong></label>
+        <select th:field="*{tipoProdutoURBX}" required>
+            <option value="Camisa">Camisa</option>
+            <option value="Shorts">Shorts</option>
+        </select>
+
+    </div>
+
+    <div>
+        <label><strong>TAMANHO:</strong></label>
+        <input type="text" th:field="*{tamanhoProdutoURBX}" required/>
+    </div>
+
+    <div>
+        <label><strong>COR:</strong></label>
+        <input type="text" th:field="*{corProdutoURBX}" required/>
+    </div>
+
+
+<div class="acoes">
+    <button type="submit" th:text="${produto.id == null ? 'Cadastrar' : 'Atualizar'}"><strong>Salvar</strong></button>
+
+</form>
+
+<br>
+
+<a th:href="@{/URBX-produto}"><strong>Voltar</strong></a>
+</div>
+</div>
+
+<div class="filho" id="footer">
+
+</div>
+</div>
+</body>
+</html>
