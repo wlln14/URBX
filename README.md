@@ -1,0 +1,2 @@
+Com estrutura MVC(Model-View-Controller), com Repositorio(Banco de dados), esse estudo tem HTML(+Thymeleaf) + CSS + SpringBoot(Com suas dependencias: Spring Web, Thymeleaf, JPA e MySQL Server).
+Consiste em um administrador de produtos da marca, tendo o CRUD(Create, Read, Uptade e Delete), sendo mais fácil gerenciar seus produtos dentro do sistema com o CSS moderno e fácil de visualizar os produtos
